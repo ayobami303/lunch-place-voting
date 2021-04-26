@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { Provider } from 'react-redux'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import {store} from './store';
+import { StyledHeading } from './styled';
 import './App.css';
+import { SearchBox } from './components';
+import Results from './components/Results';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Container>
+        <Row>
+          <Col>
+            <StyledHeading>LunchPlace</StyledHeading>
+            <SearchBox />
+            <Results />
+          </Col>
+        </Row>
+      </Container>
+    </Provider>
   );
 }
 
